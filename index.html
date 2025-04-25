@@ -4,12 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Integrating Batto Map with wildfire</title>
-    <script src="https://unpkg.com/maplibre-gl@^5.4.0/dist/maplibre-gl.js"></script>
-    <link href="https://unpkg.com/maplibre-gl@^5.4.0/dist/maplibre-gl.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+    <script src="https://unpkg.com/maplibre-gl@^5.4.0/dist/maplibre-gl.js"></script>
+    <link href="https://unpkg.com/maplibre-gl@^5.4.0/dist/maplibre-gl.css" rel="stylesheet" />
+    
+  
 </head>
 <body>
     <div id="map"></div>
+    <div id="title">Integrating Baato Map and Wildfire of Nepal</div>
+    <div id="legend">
+        <h3>Legend</h3>
+        <div><span class="legend_color" style="background-color: red;"></span>Confidence &lt;50</div>
+        <div><span class="legend_color" style="background-color: rgb(11, 11, 11);"></span>50≤Confidence &lt;70</div>
+        <div><span class="legend_color" style="background-color: rgb(0, 255, 119);"></span>Confidence ≥70</div>
+    </div>
 </body>
 </html>

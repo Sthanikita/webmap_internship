@@ -165,34 +165,82 @@ const mapData=
       
 
 console.log("initial")
-map.once("load",()=>{
-    map.addSource("forest-fire",{
-        type:"geojson",
-        data:mapData
+map.once("load", () => {
+  map.addSource("forest-fire", {
+    type: "geojson",
+    data: mapData
+  });
 
-    });
+  map.addLayer({
+    id: "forest-fire-heatmap",
+    type: "heatmap",
+    source: "forest-fire",
+    maxzoom: 20,
+    paint: {
+      // Weight of each point by 'Confidence'
+      "heatmap-weight": [
+        "interpolate",
+        ["linear"],
+        ["get", "Confidence"],
+        0, 0,
+        100, 1
+      ],
+      // Heatmap intensity changes with zoom
+      "heatmap-intensity": [
+        "interpolate",
+        ["linear"],
+        ["zoom"],
+        0, 1,
+        15, 3
+      ],
+      // Heatmap color ramp
+      "heatmap-color": [
+        "interpolate",
+        ["linear"],
+        ["heatmap-density"],
+        0, "rgba(0,0,255,0)",
+        0.2, "blue",
+        0.4, "lime",
+        0.6, "yellow",
+        0.8, "orange",
+        1, "red"
+      ],
+      // Heatmap radius by zoom level
+      "heatmap-radius": [
+        "interpolate",
+        ["linear"],
+        ["zoom"],
+        0, 2,
+        9, 20
+      ],
+      "heatmap-opacity": 0.8
+    }
+  });
+});
 
-    map.addLayer({
-        id:"forest-fire-layer",
-        type:"circle",
-        source:"forest-fire",
-        paint:{
-          'circle-color':
-          {
-            roperty:"Confidence",
-            stops:[
-              [0,"red"],[50,"black"],[70,"green"]
-            ]
-          },
-          'circle-radius':{
-            property:"Confidence",
-            stops:[
-              [0,2],[50,10],[70,12]
-            ]
-          },
-        
-        }
+  // Add circle layer (for detailed view)
+  map.addLayer({
+    id: "forest-fire-layer",
+    type: "circle",
+    source: "forest-fire",
+    minzoom: 10,
+    paint: {
+      'circle-color': {
+        property: "Confidence",
+        stops: [
+          [0, 'red'],
+          [50, 'black'],
+          [70, 'green']
+        ]
+      },
+      'circle-radius': {
+        property: "Confidence",
+        stops: [
+          [0, 2],
+          [50, 10],
+          [70, 12]
+        ]
+      }
+    }
+  });
 
-
-    })
-})

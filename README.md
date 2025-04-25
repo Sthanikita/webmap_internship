@@ -1,0 +1,1 @@
+This file contained the webmap where the wildfire has been shown using the style of batto map.
