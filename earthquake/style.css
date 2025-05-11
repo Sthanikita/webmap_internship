@@ -1,0 +1,38 @@
+
+#title {
+    text-align: center;
+    background: #fff;
+    font-size: 3em;
+    font-weight: bold;
+    padding: 10px;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+  }
+#map{
+    height:100vh;
+    width:100%;
+    position:absolute;
+
+}
+#legend {
+    position: absolute;
+    bottom: 5px;
+    left: 10px;
+    background-color: white;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    border-radius: 10px;
+    box-shadow: black;
+  }
+  
+  .legend_color {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+    vertical-align: middle;
+    border: 1px solid #ccc;
+  }
+  

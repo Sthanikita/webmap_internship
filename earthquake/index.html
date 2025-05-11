@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrating Batto Map with Earthquake</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <script src="https://unpkg.com/maplibre-gl@^5.4.0/dist/maplibre-gl.js"></script>
+    <link href="https://unpkg.com/maplibre-gl@^5.4.0/dist/maplibre-gl.css" rel="stylesheet" />
+    
+  
+</head>
+<body>
+    <div id="map"></div>
+    <div id="title">Integrating Baato Map with Earthquake since 2020</div>
+    <div id="legend">
+        <h3>Legend</h3>
+        <div><span class="legend_color" style="background-color: red;"></span>High earthquake density (many strong quakes nearby)
+        </div>
+        <div><span class="legend_color" style="background-color: orange;"></span>Moderate-high density</div>
+        <div><span class="legend_color" style="background-color: yellow;"></span>Moderate density</div>
+        <div><span class="legend_color" style="background-color: lime;"></span>Low density</div>
+        <div><span class="legend_color" style="background-color: blue;"></span> Very low density</div>
+        <div><span class="legend_color" style="background-color:transparent;"></span>No data or very sparse</div>
+ 
+    </div>
+</body>
+</html>
